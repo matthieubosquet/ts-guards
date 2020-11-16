@@ -1,4 +1,4 @@
-import * as primitiveType from '../src/primitive-type';
+import { primitiveType } from '../src/';
 
 type JSType = typeof jsType extends Set<infer T> ? T : never;
 

@@ -1,4 +1,4 @@
-export * from './asserts';
+export * as asserts from './asserts';
 export * from './error';
-export * from './primitive-type';
-export * from './standard-object';
+export * as primitiveType from './primitive-type';
+export * as standardObject from './standard-object';

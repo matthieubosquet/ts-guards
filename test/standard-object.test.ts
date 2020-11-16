@@ -1,5 +1,4 @@
-import * as standardObject from '../src/standard-object';
-import { isString } from '../src/primitive-type';
+import { primitiveType, standardObject } from '../src/';
 
 const arrayTestArray: Array<{ value: Array<unknown>, type: string }> = [
     { value: [ ], type: 'empty' },
@@ -12,7 +11,7 @@ arrayTestArray.forEach(arrayTest => {
         expect(standardObject.isArray(arrayTest.value)).toBe(true);
     });
     test(`isArrayOf(${String(arrayTest.value)}, isString) returns ${arrayTest.type === 'string'}`, () => {
-        expect(standardObject.isArrayOf(arrayTest.value, isString)).toBe(arrayTest.type === 'string');
+        expect(standardObject.isArrayOf(arrayTest.value, primitiveType.isString)).toBe(arrayTest.type === 'string');
     });
 })
 
