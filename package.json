@@ -1,6 +1,6 @@
 {
   "name": "ts-guards",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of basic type guards.",
   "author": "Matthieu Bosquet",
   "license": "MIT",
@@ -12,9 +12,13 @@
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rm -rf dist",
+    "prepublishOnly": "npm install && npm run build",
     "test": "jest \"test/.*\\.test\\.ts\""
   },
   "repository": {
