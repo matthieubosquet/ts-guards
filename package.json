@@ -21,6 +21,7 @@
     "prepublishOnly": "npm install && npm run build",
     "test": "jest \"test/.*\\.test\\.ts\""
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matthieubosquet/ts-guards.git"
