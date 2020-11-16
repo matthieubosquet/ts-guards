@@ -1,6 +1,6 @@
 {
   "name": "ts-guards",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A collection of basic type guards.",
   "author": "Matthieu Bosquet",
   "license": "MIT",
@@ -21,7 +21,9 @@
     "prepublishOnly": "npm install && npm run build",
     "test": "jest \"test/.*\\.test\\.ts\""
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matthieubosquet/ts-guards.git"
