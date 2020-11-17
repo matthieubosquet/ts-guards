@@ -33,6 +33,11 @@ export function isSymbol(x: unknown): x is symbol {
     return typeof x === 'symbol';
 }
 
+// Convenience Primitive Type
+export function isNotNullOrUndefined<T>(x: T): x is NonNullable<T> {
+    return !isNull(x) && !isUndefined(x);
+}
+
 // Structural Types
 export function isObject(x: unknown): x is object {
     return typeof x === 'object' && x !== null;
