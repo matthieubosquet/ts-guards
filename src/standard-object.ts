@@ -1,11 +1,20 @@
+import { isObject } from './primitive-type'
+
 /**
  * Standard built-in objects
  * See also https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
  */
-// Object
-// Note: if in was to be treated as a type guard, this would be unnecessary. TODO: Remove when TypeScript does.
-export function isObjectPropertyOf<P extends PropertyKey>(target: object, property: P): target is { [K in P]: unknown } {
+export function isObjectPropertyOf<P extends PropertyKey>(target: unknown, property: P): target is { [K in P]: unknown } {
+    if (!isObject(target)) { return false; }
     return property in target;
+}
+
+export function areObjectPropertiesOf<P extends PropertyKey>(target: unknown, property: P[]): target is { [K in P]: unknown } {
+    if (!isObject(target)) { return false; }
+    property.forEach(p => {
+        if (!(p in target)) { return false; }
+    });
+    return true;
 }
 
 // Indexed collections

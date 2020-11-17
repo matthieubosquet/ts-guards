@@ -5,14 +5,13 @@ import * as standardObject from './standard-object';
 
 // Generic Check
 export function isNotNullOrUndefined<T>(x: T): asserts x is NonNullable<T> {
-    if (primitiveType.isNull(x)) error('not null', x)
-    if (primitiveType.isUndefined(x)) error('not undefined', x)
+    if(primitiveType.isNull(x)) error('not null', x)
+    if(primitiveType.isUndefined(x)) error('not undefined', x)
 }
 
 export function requiredObjectPropertiesOf<P extends PropertyKey>(target: unknown, property: P[]): asserts target is { [K in P]: unknown } {
-    isObject(target);
     property.forEach(p => {
-        if (!(p in target)) error(`required property: ${p}`, 'missing property')
+        if (!standardObject.isObjectPropertyOf(target, p)) error(`required property: ${p}`, 'missing property')
     });
 }
 
