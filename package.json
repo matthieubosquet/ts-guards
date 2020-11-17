@@ -1,6 +1,6 @@
 {
   "name": "ts-guards",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A collection of basic type guards.",
   "author": "Matthieu Bosquet",
   "license": "MIT",
