@@ -38,6 +38,7 @@ export function isObject(x: unknown): x is object {
     return typeof x === 'object' && x !== null;
 }
 
-export function isFunction(x: unknown): x is Function {
-    return typeof x === 'function' && x !== null;
-}
+// TODO: is there a way to actually test for functions?
+// export function isFunction(x: unknown): x is () => any {
+//     return typeof x === 'function' && x !== null;
+// }

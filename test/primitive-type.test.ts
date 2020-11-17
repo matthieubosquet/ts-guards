@@ -37,8 +37,7 @@ const primitiveTypeTestArray: Array<{ guard: Function, type: string }> = [
     { guard: primitiveType.isBigInt, type: 'bigint' },
     { guard: primitiveType.isSymbol, type: 'symbol' },
     { guard: primitiveType.isSymbol, type: 'symbol' },
-    { guard: primitiveType.isObject, type: 'object' },
-    { guard: primitiveType.isFunction, type: 'function' },
+    { guard: primitiveType.isObject, type: 'object' }
 ];
 
 primitiveTypeTestArray.forEach((primitiveTypeTest) => {
