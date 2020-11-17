@@ -9,7 +9,8 @@ export function isNotNullOrUndefined<T>(x: T): asserts x is NonNullable<T> {
     if (primitiveType.isUndefined(x)) error('not undefined', x)
 }
 
-export function requiredObjectPropertiesOf<P extends PropertyKey>(target: object, property: P[]): asserts target is { [K in P]: unknown } {
+export function requiredObjectPropertiesOf<P extends PropertyKey>(target: unknown, property: P[]): asserts target is { [K in P]: unknown } {
+    isObject(target);
     property.forEach(p => {
         if (!(p in target)) error(`required property: ${p}`, 'missing property')
     });
