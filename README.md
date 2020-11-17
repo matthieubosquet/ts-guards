@@ -27,7 +27,8 @@ A collection of generic type guards to check runtime variables in TypeScript.
   // Type of x inferred inside the if statement as: let x: string
   if(isLiteral(x, "x" as const)) { x }
 
-  if(isLiteralType(x, new Set([ "x", "y", "z" ] as const))) { x }
+  // Type of x inferred inside the if statement as: let x: "x" | 1 | "y" | "z"
+  if(isLiteralType(x, new Set([ "x", 1, "y", "z" ] as const))) { x }
   ```
 
 ## Why?
