@@ -4,7 +4,7 @@ A collection of generic type guards to check runtime variables in TypeScript.
 
 ## How-to?
 
-- Install the package
+- Install the [npm package ts-guards](https://www.npmjs.com/package/ts-guards)
   ```bash
   npm i ts-guards
   ```

@@ -39,6 +39,13 @@ export function isObject(x: unknown): x is object {
 }
 
 // TODO: is there a way to actually test for functions?
+// Also, we can assume that function is not a thing to test for since it should not be delivered as unsafe IO
 // export function isFunction(x: unknown): x is () => any {
 //     return typeof x === 'function' && x !== null;
+// }
+// export function isFunction(x: unknown): x is function {
+//     return typeof x === 'function';
+// }
+// export function isFunctions<K extends Function>(x: unknown): x is K {
+//     return typeof x === 'function';
 // }
