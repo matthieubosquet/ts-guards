@@ -14,15 +14,15 @@ export function isArrayOf(x: unknown, y: (x: unknown) => boolean): x is Array<un
 }
 
 // Object
-export function isObjectPropertyOf<P extends PropertyKey>(target: unknown, property: P): target is { [K in P]: unknown } {
-    if (!isObject(target)) { return false; }
-    return property in target;
+export function isObjectPropertyOf<P extends PropertyKey>(x: unknown, property: P): x is { [K in P]: unknown } {
+    if (!isObject(x)) { return false; }
+    return property in x;
 }
 
-export function areObjectPropertiesOf<P extends PropertyKey>(target: unknown, property: P[]): target is { [K in P]: unknown } {
-    if (!isObject(target)) { return false; }
+export function areObjectPropertiesOf<P extends PropertyKey>(x: unknown, property: P[]): x is { [K in P]: unknown } {
+    if (!isObject(x)) { return false; }
     property.forEach(p => {
-        if (!(p in target)) { return false; }
+        if (!(p in x)) { return false; }
     });
     return true;
 }

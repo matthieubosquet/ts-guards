@@ -68,12 +68,12 @@ export function isArrayOf(x: unknown, y: (x: unknown) => boolean): asserts x is 
 }
 
 // Object
-export function isObjectPropertyOf<P extends PropertyKey>(target: unknown, property: P): asserts target is { [K in P]: unknown } {
-    if (!standardObject.isObjectPropertyOf(target, property)) error(`object property ${property}`, target)
+export function isObjectPropertyOf<P extends PropertyKey>(x: unknown, property: P): asserts x is { [K in P]: unknown } {
+    if (!standardObject.isObjectPropertyOf(x, property)) error(`object property ${property}`, x)
 }
 
-export function areObjectPropertiesOf<P extends PropertyKey>(target: unknown, property: P[]): asserts target is { [K in P]: unknown } {
-    property.forEach(p => isObjectPropertyOf(target, p));
+export function areObjectPropertiesOf<P extends PropertyKey>(x: unknown, property: P[]): asserts x is { [K in P]: unknown } {
+    property.forEach(p => isObjectPropertyOf(x, p));
 }
 
 /**
