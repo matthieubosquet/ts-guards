@@ -1,4 +1,4 @@
-import { isObject } from './primitive-type'
+import { isObject } from "./primitive-type";
 
 /**
  * Standard built-in objects
@@ -6,23 +6,35 @@ import { isObject } from './primitive-type'
  */
 // Array
 export function isArray(x: unknown): x is Array<unknown> {
-    return Array.isArray(x);
+  return Array.isArray(x);
 }
 
-export function isArrayOf(x: unknown, y: (x: unknown) => boolean): x is Array<unknown> {
-    return isArray(x) && x.length > 0 &&  x.every(i => y(i));
+export function isArrayOf(
+  x: unknown,
+  y: (z: unknown) => boolean
+): x is Array<unknown> {
+  return isArray(x) && x.length > 0 && x.every((i) => y(i));
 }
 
 // Object
-export function isObjectPropertyOf<P extends PropertyKey>(x: unknown, property: P): x is { [K in P]: unknown } {
-    if (!isObject(x)) { return false; }
-    return property in x;
+export function isObjectPropertyOf<P extends PropertyKey>(
+  x: unknown,
+  property: P
+): x is { [K in P]: unknown } {
+  if (!isObject(x)) {
+    return false;
+  }
+  return property in x;
 }
 
-export function areObjectPropertiesOf<P extends PropertyKey>(x: unknown, property: P[]): x is { [K in P]: unknown } {
-    if (!isObject(x)) { return false; }
-    property.forEach(p => {
-        if (!(p in x)) { return false; }
-    });
-    return true;
+export function areObjectPropertiesOf<P extends PropertyKey>(
+  x: unknown,
+  property: P[]
+): x is { [K in P]: unknown } {
+  if (!isObject(x)) {
+    return false;
+  }
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const result = property.reduce((_accumulator, current) => current in x, true);
+  return result;
 }

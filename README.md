@@ -1,5 +1,9 @@
 # Type Guards
 
+[![Test workflow](https://github.com/matthieubosquet/ts-guards/workflows/test/badge.svg?branch=main)](https://github.com/matthieubosquet/ts-guards/actions/workflows/test.yml?query=workflow%3Atest+branch%3Amain)
+[![npm package](https://img.shields.io/npm/v/ts-guards)](https://www.npmjs.com/package/ts-guards)
+
+
 A collection of generic type guards to check runtime variables in TypeScript.
 
 ## How-to?
@@ -17,7 +21,7 @@ A collection of generic type guards to check runtime variables in TypeScript.
   // Type of x inferred inside the if statement as: let x: string
   if(primitiveType.isString(x)) { console.log(x); }
 
-  // Type of x inferred after the call as: 
+  // Type of x inferred after the call as:
   // Throws an error if type doesn't match
   asserts.isString(x);
 

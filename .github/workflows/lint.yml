@@ -1,0 +1,18 @@
+name: lint
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm ci --ignore-scripts
+      - run: npx --no-install eslint --ignore-path .gitignore .
+      - run: npx --no-install prettier --check --ignore-path .gitignore '**/*.{css,html,json,md,mdx,yml}'
